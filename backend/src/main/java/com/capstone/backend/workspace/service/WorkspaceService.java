@@ -43,27 +43,4 @@ public class WorkspaceService {
     }
 
 
-    public void saveFile(String workspaceName, String fileName, byte[] fileData) throws Exception {
-        // 워크스페이스 가져오기
-        Optional<Workspace> optionalWorkspace = workspaceRepository.findByName(workspaceName);
-        if (optionalWorkspace.isEmpty()) {
-            throw new IllegalArgumentException("존재하지 않는 워크스페이스입니다.");
-        }
-
-        Workspace workspace = optionalWorkspace.get();
-
-        // 파일 저장
-        Path savePath = rootLocation.resolve(fileName);
-        Files.write(savePath, fileData);
-
-        // 파일 정보 저장
-        Photo photo = new Photo();
-        photo.setFileName(fileName);
-        photo.setFilePath(savePath.toString());
-        photo.setWorkspace(workspace);
-
-        workspace.getFiles().add(photo);
-        workspaceRepository.save(workspace);
-    }
-
 }

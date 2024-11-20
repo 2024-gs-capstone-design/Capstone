@@ -43,16 +43,5 @@ public class WorkspaceController {
         return ResponseEntity.ok(workspaces);
     }
 
-    @PostMapping("/upload")
-    public ResponseEntity<String> uploadFile(
-            @RequestParam String workspaceName,
-            @RequestParam MultipartFile file
-    ) {
-        try {
-            workspaceService.saveFile(workspaceName, file.getOriginalFilename(), file.getBytes());
-            return ResponseEntity.ok("파일이 업로드되었습니다.");
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("파일 업로드 실패: " + e.getMessage());
-        }
-    }
+
 }

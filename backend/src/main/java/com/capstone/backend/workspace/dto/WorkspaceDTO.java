@@ -10,9 +10,4 @@ public class WorkspaceDTO {
     private Long id;
     private String name;
 
-//    public WorkspaceDTO(Long id, String name) {
-//        this.id = id;
-//        this.name = name;
-//    }
-
 }
