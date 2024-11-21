@@ -2,6 +2,7 @@ package com.capstone.backend.workspace.controller;
 
 import com.capstone.backend.workspace.dto.PhotoDTO;
 import com.capstone.backend.workspace.service.PhotoService;
+import com.capstone.backend.workspace.service.WorkspaceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.util.List;
 public class PhotoController {
 
     private final PhotoService photoService;
+    private final WorkspaceService workspaceService;
 
     // workspace 정보 가져오기
     @GetMapping("/{workspaceId}")
@@ -40,4 +42,6 @@ public class PhotoController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("파일 업로드 실패: " + e.getMessage());
         }
     }
+
+
 }

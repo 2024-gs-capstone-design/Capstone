@@ -89,6 +89,22 @@ const Workspace = () => {
     }
   };
 
+  // 워크스페이스 삭제 요청
+	const deleteWorkspace = async (workspaceId) => {
+		const confirmDelete = window.confirm("정말 이 워크스페이스를 삭제하시겠습니까?");
+		if (!confirmDelete) return;
+
+		try {
+			await axios.delete(`http://localhost:8080/api/workspace/${workspaceId}`);
+			alert("워크스페이스가 삭제되었습니다.");
+			// 삭제 후 워크스페이스 목록 갱신
+			fetchWorkspaces();
+		} catch (error) {
+			console.error("워크스페이스 삭제 중 오류 발생:", error);
+			alert("워크스페이스 삭제에 실패했습니다.");
+		}
+	};
+
   return (
     <div style={{ padding: "20px" }}>
       <h2>워크스페이스 목록</h2>
@@ -115,6 +131,7 @@ const Workspace = () => {
               >
                 선택
               </button>
+			  <button onClick={() => deleteWorkspace(workspace.id)}>삭제</button>
               <div style={{ marginTop: "10px" }}>
                 <input
                   type="file"
@@ -129,6 +146,7 @@ const Workspace = () => {
                 >
                   파일 추가
                 </button>
+				
               </div>
             </div>
           </li>

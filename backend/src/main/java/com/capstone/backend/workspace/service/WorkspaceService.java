@@ -42,5 +42,18 @@ public class WorkspaceService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * 워크스페이스 삭제 메서드
+     * @param workspaceId 삭제할 워크스페이스 ID
+     * @throws IllegalArgumentException 존재하지 않는 워크스페이스일 경우 예외 발생
+     */
+    public void deleteWorkspace(Long workspaceId) {
+        if (!workspaceRepository.existsById(workspaceId)) {
+            throw new IllegalArgumentException("해당 워크스페이스가 존재하지 않습니다.");
+        }
 
+        // 워크스페이스 삭제 (연관된 Photo도 삭제됨)
+        workspaceRepository.deleteById(workspaceId);
+
+    }
 }

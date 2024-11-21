@@ -21,7 +21,7 @@ public class Workspace {
     @Column
     private String name;
 
-    @OneToMany(mappedBy = "workspace", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "workspace", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Photo> files = new ArrayList<>();
 
 }
