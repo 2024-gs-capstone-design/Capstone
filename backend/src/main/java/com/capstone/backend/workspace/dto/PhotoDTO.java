@@ -11,4 +11,5 @@ public class PhotoDTO {
     private Long id;
     private String fileName;
     private String filePath;
+
 }

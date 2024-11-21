@@ -2,11 +2,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const WorkspaceList = () => {
+const Workspace = () => {
   const [workspaces, setWorkspaces] = useState([]);
   const [workspaceName, setWorkspaceName] = useState("");
   const [selectedWorkspace, setSelectedWorkspace] = useState(null); // 선택된 워크스페이스
   const [photos, setPhotos] = useState([]); // 선택된 워크스페이스의 사진 목록
+  const [fileInputs, setFileInputs] = useState({}); // 워크스페이스별 파일 입력 상태 관리
+  
 
   // 워크스페이스 목록 가져오기
   useEffect(() => {
@@ -42,14 +44,46 @@ const WorkspaceList = () => {
     }
   };
 
+  // 파일 추가 요청
+  const addFileToWorkspace = async (workspaceId) => {
+    const selectedFile = fileInputs[workspaceId];
+
+    if (!selectedFile) {
+      alert("파일을 선택하세요.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", selectedFile); // 파일 추가
+    formData.append("workspaceId", workspaceId); // 워크스페이스 ID 추가
+
+    try {
+      await axios.post("http://localhost:8080/api/photos/upload", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      alert("파일 추가 성공!");
+    } catch (error) {
+      console.error("파일 추가 중 오류 발생:", error);
+    }
+  };
+
+  
+  const handleFileChange = (workspaceId, file) => { // 파일 선택 이벤트 핸들러
+    setFileInputs((prevState) => ({
+      ...prevState,
+      [workspaceId]: file,
+    }));
+  };
+
   // 워크스페이스 선택 및 사진 목록 가져오기
   const fetchPhotos = async (workspaceId) => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/workspace/${workspaceId}/photos`
+        `http://localhost:8080/api/photos/${workspaceId}`
       );
       setSelectedWorkspace(workspaceId); // 선택된 워크스페이스 설정
       setPhotos(response.data); // 사진 목록 업데이트
+	  console.log(response)
     } catch (error) {
       console.error("사진 목록을 가져오는 중 오류 발생:", error);
     }
@@ -58,7 +92,7 @@ const WorkspaceList = () => {
   return (
     <div style={{ padding: "20px" }}>
       <h2>워크스페이스 목록</h2>
-      <form onSubmit={createWorkspace} style={{ marginBottom: "20px" }}>
+	  <form onSubmit={createWorkspace} style={{ marginBottom: "20px" }}>
         <input
           type="text"
           placeholder="워크스페이스 이름 입력"
@@ -70,39 +104,51 @@ const WorkspaceList = () => {
           워크스페이스 생성
         </button>
       </form>
-
       <ul>
         {workspaces.map((workspace) => (
-          <li
-            key={workspace.id}
-            style={{ margin: "10px 0", cursor: "pointer", color: "blue" }}
-            onClick={() => fetchPhotos(workspace.id)} // 클릭 시 사진 목록 가져오기
-          >
-            {workspace.name}
+          <li key={workspace.id} style={{ margin: "10px 0" }}>
+            <div>
+              <strong>{workspace.name}</strong>
+              <button
+                onClick={() => fetchPhotos(workspace.id)} // 워크스페이스 선택 시 사진 목록 가져오기
+                style={{ marginLeft: "10px" }}
+              >
+                선택
+              </button>
+              <div style={{ marginTop: "10px" }}>
+                <input
+                  type="file"
+                  onChange={(e) =>
+                    handleFileChange(workspace.id, e.target.files[0])
+                  }
+                  style={{ marginRight: "10px" }}
+                />
+                <button
+                  onClick={() => addFileToWorkspace(workspace.id)} // 선택된 워크스페이스에 파일 추가
+                  style={{ padding: "8px 15px" }}
+                >
+                  파일 추가
+                </button>
+              </div>
+            </div>
           </li>
         ))}
       </ul>
 
       {selectedWorkspace && (
         <div style={{ marginTop: "20px" }}>
-          <h3>선택된 워크스페이스 ID: {selectedWorkspace}</h3>
-          <h4>사진 목록:</h4>
-          {photos.length > 0 ? (
-            <ul>
-              {photos.map((photo) => (
-                <li key={photo.id}>
-                  <p>파일 이름: {photo.fileName}</p>
-                  <p>파일 경로: {photo.filePath}</p>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>해당 워크스페이스에 사진이 없습니다.</p>
-          )}
+          <h3>선택된 워크스페이스의 파일 목록</h3>
+          <ul>
+            {photos.map((photo) => (
+              <li key={photo.id}>
+                {photo.fileName} - {photo.filePath}
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </div>
   );
 };
 
-export default WorkspaceList;
+export default Workspace;
