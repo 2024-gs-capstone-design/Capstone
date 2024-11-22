@@ -34,6 +34,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/register", "/login", "/api/**").permitAll()
                         .requestMatchers(HttpMethod.DELETE, "/api/workspace/**").permitAll() // DELETE 요청 허용
+                        .requestMatchers("/upload/photos/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)); // Stateless 인증

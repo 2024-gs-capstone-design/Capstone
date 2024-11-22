@@ -1,8 +1,11 @@
 package com.capstone.backend.workspace.model;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.time.LocalDateTime;
 
 
 @Entity
@@ -22,4 +25,5 @@ public class  Photo {
     @ManyToOne
     @JoinColumn(name = "workspace_id", nullable = false)
     private Workspace workspace; // 워크스페이스와 연결
+
 }

@@ -30,16 +30,19 @@ public class PhotoController {
         }
     }
 
+    // 파일 업로드 API
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadPhotoToWorkspace(
+    public ResponseEntity<String> uploadPhoto(
             @RequestParam("file") MultipartFile file,
-            @RequestParam("workspaceId") Long workspaceId
-    ) {
+            @RequestParam("workspaceId") Long workspaceId) {
+        System.out.println("File: " + file.getOriginalFilename());
+        System.out.println("Workspace ID: " + workspaceId);
         try {
             String filePath = photoService.uploadPhoto(file, workspaceId);
             return ResponseEntity.ok("파일 업로드 성공: " + filePath);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("파일 업로드 실패: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("파일 업로드 실패: " + e.getMessage());
         }
     }
 

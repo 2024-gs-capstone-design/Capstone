@@ -8,6 +8,7 @@ const Workspace = () => {
   const [selectedWorkspace, setSelectedWorkspace] = useState(null); // 선택된 워크스페이스
   const [photos, setPhotos] = useState([]); // 선택된 워크스페이스의 사진 목록
   const [fileInputs, setFileInputs] = useState({}); // 워크스페이스별 파일 입력 상태 관리
+  const [selectedPhoto, setSelectedPhoto] = useState(null); // 클릭한 사진
   
 
   // 워크스페이스 목록 가져오기
@@ -105,6 +106,11 @@ const Workspace = () => {
 		}
 	};
 
+  // 사진 클릭 이벤트 핸들러
+  const handlePhotoClick = (photo) => {
+    setSelectedPhoto(photo); // 클릭된 사진 데이터 저장
+  };
+
   return (
     <div style={{ padding: "20px" }}>
       <h2>워크스페이스 목록</h2>
@@ -153,7 +159,7 @@ const Workspace = () => {
         ))}
       </ul>
 
-      {selectedWorkspace && (
+      {/* {selectedWorkspace && (
         <div style={{ marginTop: "20px" }}>
           <h3>선택된 워크스페이스의 파일 목록</h3>
           <ul>
@@ -163,6 +169,38 @@ const Workspace = () => {
               </li>
             ))}
           </ul>
+        </div>
+      )} */}
+
+      {selectedWorkspace && (
+        <div style={{ marginTop: "20px" }}>
+          <h3>선택된 워크스페이스의 파일 목록</h3>
+          <ul>
+            {photos.map((photo) => (
+              <li
+                key={photo.id}
+                onClick={() => handlePhotoClick(photo)}
+                style={{
+                  cursor: "pointer",
+                  textDecoration: "underline",
+                  color: "blue",
+                }}
+              >
+                {photo.fileName}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {selectedPhoto && (
+        <div style={{ marginTop: "20px" }}>
+          <h3>선택된 사진</h3>
+          <img
+            src={`http://localhost:8080/upload/photos/${selectedPhoto.fileName}`}
+            alt={selectedPhoto.fileName}
+            style={{ maxWidth: "100%", maxHeight: "400px" }}
+          />
         </div>
       )}
     </div>

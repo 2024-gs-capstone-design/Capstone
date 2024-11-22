@@ -7,11 +7,15 @@
     <list default="true" id="bc65b718-33d3-4751-915d-85cec35f10e4" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../opensw project/.idea/opensw project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CodingTest/1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/backend.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/backend.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/controller/PhotoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/controller/PhotoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/dto/PhotoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/dto/PhotoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/repository/WorkspaceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/repository/WorkspaceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/model/Photo.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/model/Photo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/model/Workspace.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/model/Workspace.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/service/PhotoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/service/PhotoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/Workspace.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/Workspace.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/RegisterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/RegisterForm.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +30,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$/backend">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -85,6 +92,9 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -144,6 +154,8 @@
       <workItem from="1731672510001" duration="46743000" />
       <workItem from="1732123961186" duration="28000" />
       <workItem from="1732123996127" duration="32000" />
+      <workItem from="1732124048246" duration="12793000" />
+      <workItem from="1732256742181" duration="4541000" />
     </task>
     <servers />
   </component>
