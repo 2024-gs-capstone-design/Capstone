@@ -73,7 +73,7 @@ const Workspace = () => {
   const handleFileChange = (workspaceId, file) => { // 파일 선택 이벤트 핸들러
 
     console.log(`선택한 파일의 MIME 타입: ${file.type}`);
-    
+
     setFileInputs((prevState) => ({
       ...prevState,
       [workspaceId]: file,
@@ -201,7 +201,7 @@ const Workspace = () => {
         <div style={{ marginTop: "20px" }}>
           <h3>선택된 사진</h3>
           <img
-            src={`http://localhost:8080/upload/photos/${selectedPhoto.fileName}`}
+            src={`http://localhost:8080/api/photos/${selectedWorkspace}/${selectedPhoto.fileName}`}
             alt={selectedPhoto.fileName}
             style={{ maxWidth: "100%", maxHeight: "400px" }}
           />

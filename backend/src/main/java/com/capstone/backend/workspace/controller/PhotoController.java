@@ -59,17 +59,30 @@ public class PhotoController {
         }
     }
 
-    @GetMapping("/upload/photos/{fileName:.+}")
-    public ResponseEntity<Resource> getPhoto(@PathVariable String fileName) {
+    @GetMapping("/{workspaceId}/{fileName:.+}")
+    public ResponseEntity<Resource> getPhoto(@PathVariable Long workspaceId,
+                                             @PathVariable String fileName) {
+        System.out.println("sds");
+
         try {
-            Path filePath = Paths.get("/Users/oooh/git/capstone/backend/src/main/resources/static/upload/photos").resolve(fileName).normalize();
+            Path filePath = Paths.get("/Users/oooh/git/capstone/backend/src/main/resources/static/upload/photos/")
+                    .resolve(fileName)
+                    .normalize();
             Resource resource = new UrlResource(filePath.toUri());
+
+            System.out.println("요청된 파일 이름: " + fileName);
+            System.out.println("Resolved 파일 경로: " + filePath.toString());
+            System.out.println("파일 존재 여부: " + Files.exists(filePath));
+            System.out.println("파일 읽기 가능 여부: " + Files.isReadable(filePath));
 
             if (resource.exists() && resource.isReadable()) {
                 String contentType = Files.probeContentType(filePath);
 
                 return ResponseEntity.ok()
                         .contentType(MediaType.parseMediaType(contentType))
+                        .header("Cache-Control", "no-cache, no-store, must-revalidate") // 캐싱 방지
+                        .header("Pragma", "no-cache")
+                        .header("Expires", "0")
                         .body(resource);
             } else {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

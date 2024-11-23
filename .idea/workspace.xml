@@ -9,7 +9,8 @@
       <change beforePath="$PROJECT_DIR$/../CodingTest/1.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/controller/PhotoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/controller/PhotoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/upload/photos/멘티의자세.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/upload/photos/다운로드.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/Workspace.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/Workspace.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +150,7 @@
       <workItem from="1732123961186" duration="28000" />
       <workItem from="1732123996127" duration="32000" />
       <workItem from="1732124048246" duration="12793000" />
-      <workItem from="1732256742181" duration="8619000" />
+      <workItem from="1732256742181" duration="10855000" />
     </task>
     <servers />
   </component>
