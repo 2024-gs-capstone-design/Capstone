@@ -63,6 +63,7 @@ const Workspace = () => {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert("파일 추가 성공!");
+      console.log(formData);
     } catch (error) {
       console.error("파일 추가 중 오류 발생:", error);
     }
@@ -70,6 +71,9 @@ const Workspace = () => {
 
   
   const handleFileChange = (workspaceId, file) => { // 파일 선택 이벤트 핸들러
+
+    console.log(`선택한 파일의 MIME 타입: ${file.type}`);
+    
     setFileInputs((prevState) => ({
       ...prevState,
       [workspaceId]: file,

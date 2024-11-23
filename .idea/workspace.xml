@@ -7,15 +7,9 @@
     <list default="true" id="bc65b718-33d3-4751-915d-85cec35f10e4" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../opensw project/.idea/opensw project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CodingTest/1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/backend.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/backend.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/controller/PhotoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/controller/PhotoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/model/Photo.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/model/Photo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/model/Workspace.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/model/Workspace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/service/PhotoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/capstone/backend/workspace/service/PhotoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/RegisterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/RegisterForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/static/upload/photos/멘티의자세.PNG" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +149,7 @@
       <workItem from="1732123961186" duration="28000" />
       <workItem from="1732123996127" duration="32000" />
       <workItem from="1732124048246" duration="12793000" />
-      <workItem from="1732256742181" duration="4541000" />
+      <workItem from="1732256742181" duration="8619000" />
     </task>
     <servers />
   </component>
